@@ -14,15 +14,26 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     color:#fff;
+    font-weight:700;
+    font-family:'PT Sans',sans-serif;
+    text-decoration:none;
+    padding:1rem;
+    margin-right:1rem;
 
+    &:last-of-type{
+        margin-right:0;
+    }
+    &.paginaActual{
+        border-bottom:2px solid #fff;
+    }
 `;
 
 const Navegacion = () => {
     return (
         <Nav>
-            <NavLink to='/'>Inicio</NavLink>
-            <NavLink to='nosotros'>Nosotros</NavLink>
-            <NavLink to='/propiedades'>Propiedades</NavLink>
+            <NavLink to='/' activeClassName="paginaActual">Inicio</NavLink>
+            <NavLink to='/nosotros' activeClassName="paginaActual">Nosotros</NavLink>
+            <NavLink to='/propiedades' activeClassName="paginaActual">Propiedades</NavLink>
         </Nav>
      );
 }

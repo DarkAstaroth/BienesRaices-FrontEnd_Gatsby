@@ -1,8 +1,11 @@
 import React from 'react';
+import Layout from '../components/layout';
 
 const Propiedades = () => {
     return (
-        <h1>Propiedades</h1>
+        <Layout>
+            <h1>Propiedades</h1>
+        </Layout>
      );
 }
  
