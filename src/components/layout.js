@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Global, css } from '@emotion/react';
+import Header from './header';
 
 const Layout = ({children}) => {
     return (
@@ -55,6 +56,7 @@ const Layout = ({children}) => {
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>
                 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
             </Helmet>
+            <Header />
             {children}
         </>
      );
