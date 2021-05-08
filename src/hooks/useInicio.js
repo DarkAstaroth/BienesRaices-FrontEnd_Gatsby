@@ -2,7 +2,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 const useInicio = () => {
-    
     const resultado = useStaticQuery(graphql`
         query {
             allStrapiPaginas(filter:{nombre : { eq: "Inicio" }}){
@@ -11,14 +10,22 @@ const useInicio = () => {
                     nombre
                     contenido
                     imagen {
-                        publicURL
+                        sharp : childImageSharp {
+                            fluid ( maxWidth : 1200 ){
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
                     }
                 }
             }
         }
     `);
 
-    console.log(resultado);
+    return resultado.allStrapiPaginas.nodes.map(inicio => ({
+        nombre: inicio.nombre,
+        contenido: inicio.contenido,
+        imagen: inicio.imagen
+    }));
 }
 
 export default useInicio;
