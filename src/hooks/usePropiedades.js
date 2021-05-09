@@ -38,11 +38,11 @@ const usePropiedades = () => {
         imagen: propiedad.imagen,
         id: propiedad.id,
         wc: propiedad.wc,
-        estacienamiento: propiedad.estacionamiento,
+        estacionamiento: propiedad.estacionamiento,
         habitaciones: propiedad.habitaciones,
         agentes: propiedad.agentes,
         precio: propiedad.precio,
-        categorio:propiedad.categoria
+        categoria:propiedad.categoria
     }))
 }
 
