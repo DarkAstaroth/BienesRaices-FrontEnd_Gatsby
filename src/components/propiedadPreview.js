@@ -1,6 +1,7 @@
 import React from 'react';
 import Iconos from './iconos';
 import styled from '@emotion/styled';
+import Img from 'gatsby-image';
 
 const Card = styled.div`
     border: 1px solid #e1e1e1;
@@ -28,6 +29,9 @@ const PropiedadPreview = ({ propiedad }) => {
 
     return (
         <Card>
+            <Img
+                fluid={imagen.sharp.fluid}
+            />
             <Contenido>
                 <h3>{nombre}</h3>
                 <p className="precio">{precio}</p>
