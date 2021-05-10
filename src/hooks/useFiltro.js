@@ -18,6 +18,8 @@ const Select = styled.select`
     font-family:'Lato',sans-serif;
 `;
 const useFiltro = () => {
+
+    const [categoria, setCategoria] = useState('');
     
     const resultado = useStaticQuery(graphql`
         query {
@@ -34,7 +36,10 @@ const useFiltro = () => {
 
     const FiltroUI = () => (
         <Formulario>
-            <Select>
+            <Select
+                onChange={e => setCategoria(e.target.value)}
+                value={categoria}
+            >
                 <option value="">---Filtrar--</option>
                 {
                     categorias.map(opcion => (
@@ -46,6 +51,7 @@ const useFiltro = () => {
     );
 
     return {
+        categoria,
         FiltroUI
     } 
 }
