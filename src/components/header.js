@@ -36,7 +36,9 @@ const Header = () => {
                     }
                 `}
             >
-                <Link>
+                <Link
+                    to='/'
+                >
                     <img src={ logo.publicURL } alt="" width="75"/>
                 </Link>
 
