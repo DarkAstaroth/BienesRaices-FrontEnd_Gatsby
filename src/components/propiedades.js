@@ -1,8 +1,27 @@
 import React from 'react';
+import Iconos from './iconos';
+import styled from '@emotion/styled';
+import Img from 'gatsby-image';
+import Layout from './layout';
+import { graphql } from 'gatsby';
 
-const Propiedad = () => {
+export const query = graphql`
+    query ($id : String!){
+        allStrapiPropiedades(filter:{id:{eq:$id}}){
+            nodes{
+                nombre
+                estacionamiento
+            }
+        }
+    }
+`;
+
+const Propiedad = ({data}) => {
+
     return (
-        <h1>Propiedad</h1>
+        <Layout>
+
+        </Layout>
      );
 }
  
