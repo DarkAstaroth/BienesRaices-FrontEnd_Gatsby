@@ -5,6 +5,36 @@ import Img from 'gatsby-image';
 import Layout from './layout';
 import { graphql } from 'gatsby';
 
+const Contenido = styled.div`
+    max-width:1200;
+    margin: 0 auto;
+    width:95%;
+
+    @media(min-width:768px){
+        display:flex;
+        grid-template-columns: 2fr,1fr;
+        column-gap: 5rem;
+    }
+`;
+
+const Sidebar = styled.aside`
+    .precio {
+        font-size:2rem;
+        color:#75ab00;
+    }
+    .agente{
+        margin-top:4rem;
+        border-radius:2rem;
+        background-color:#75ab00;
+        padding:3rem;
+        color:#fff;
+
+        p{
+            margin:0;
+        }
+    }
+`;
+
 export const query = graphql`
     query ($id : String!){
         allStrapiPropiedades(filter:{id:{eq:$id}}){
@@ -39,26 +69,26 @@ const Propiedad = ({ data: { allStrapiPropiedades: { nodes } } }) => {
     return (
         <Layout>
             <h1>{nombre}</h1>
-            <div>
+            <Contenido>
                 <main>
                     <Img fluid={imagen.sharp.fluid} />
                     <p>{description}</p>
                 </main>
-                <aside>
-                    <p>$ {precio}</p>
+                <Sidebar>
+                    <p className="precio">$ {precio}</p>
                     <Iconos
                         wc={wc}
                         estacionamiento={estacionamiento}
                         habitaciones={habitaciones}
                     />
-                    <div>
+                    <div className="agente">
                         <h2>Vendedor:</h2>
                         <p>{agentes.nombre}</p>
                         <p>tel: {agentes.telefono}</p>
                         <p>Email:{ agentes.email}</p>
                     </div>
-                </aside>
-            </div>
+                </Sidebar>
+            </Contenido>
         </Layout>
     );
 }
