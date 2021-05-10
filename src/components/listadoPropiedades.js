@@ -3,11 +3,15 @@ import { css } from '@emotion/react';
 import usePropiedades from '../hooks/usePropiedades';
 import PropiedadPreview from './propiedadPreview';
 import * as listadoPropiedadesCSS from '../css/listadoProiedades.module.css';
+import useFiltro from '../hooks/useFiltro';
 
 const ListadoPropiedades = () => {
 
     const resultado = usePropiedades();
     const [propiedades, setPropiedades] = useState([]);
+
+    // filtrado de propiedades
+    const { FiltroUI } = useFiltro();
 
     useEffect(() => {
         setPropiedades(resultado);
@@ -20,6 +24,8 @@ const ListadoPropiedades = () => {
                 margin-top:5rem;
             `}
             >Nuestras Propiedades</h2>
+
+            {FiltroUI()}
 
             <ul className={listadoPropiedadesCSS.propiedades}>
                 {propiedades.map(propiedad => (
